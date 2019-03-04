@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+    <default>
+    <reference name="before_body_end">
+        <!-- Zaius stuff, needs to be moved! -->
+        <block type="core/template" name="zaius_engage_prebaked_before_body_end" after="-">
+            <action method="setTemplate">
+                <template>zaius_engage/zaius_prebaked.phtml</template>
+            </action>
+        </block>
+        <block type="zaius_engage/template" name="zaius_engage_before_body_end" after="-">
+            <action method="setTemplate">
+                <template>zaius_engage/zaius.phtml</template>
+            </action>
+        </block>
+        <!-- End Zaius stuff -->
+        </reference>
+    </default>
+</layout>

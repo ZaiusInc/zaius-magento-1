@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+    <tabs>
+        <zaius_config translate="label">
+            <label>Zaius</label>
+            <sort_order>150</sort_order>
+        </zaius_config>
+    </tabs>
+    <sections>
+        <zaius_engage translate="label" module="zaius_engage">
+            <label>Zaius Engage</label>
+            <tab>zaius_config</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>9999</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+
+                <status translate="'label comment">
+                    <label>Zaius Engage Status</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <heading translate="label">
+                            <label>Zaius Engage</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </heading>
+                        <version translate="label">
+                            <label>Zaius Engage Version</label>
+                            <frontend_type>select</frontend_type>
+                            <frontend_model>Zaius_Engage_Block_Adminhtml_System_Config_Version</frontend_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </version>
+                        <composer>
+                            <label>Composer Installed?</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>0</sort_order>
+                            <frontend_model>Zaius_Engage_Block_Adminhtml_System_Config_Sdk</frontend_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </composer>
+                        <sdk translate="label comment">
+                            <label>SDK Installed?</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>0</sort_order>
+                            <frontend_model>Zaius_Engage_Block_Adminhtml_System_Config_Sdk</frontend_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </sdk>
+                    </fields>
+                </status>
+
+                <config translate="label comment">
+                    <label>Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <zaius_tracker_id>
+                            <label>Zaius Tracker ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[
+                Found at: <a href="https://app.zaius.com/app?scope=731#/api_management" target="_blank">API Management</a> in your Zaius Account. ]]>
+                            </comment>
+                        </zaius_tracker_id>
+                        <zaius_private_api>
+                            <label>Zaius API Key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[
+                Found at: <a href="https://app.zaius.com/app?scope=731#/api_management" target="_blank">API Management</a> in your Zaius Account. ]]>
+                            </comment>
+                        </zaius_private_api>
+                        <amazon_active translate="label comment">
+                            <label>Enable Amazon S3 Uploads</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>3</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </amazon_active>
+                        <amazon_s3_key>
+                            <label>Amazon S3 Key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><amazon_active>1</amazon_active></depends>
+                            <comment><![CDATA[
+                Found at: <a href="https://app.zaius.com/app?scope=731#/integrations?activeTab=amazon_s3" target="_blank">Integrations</a> in your Zaius Account. ]]>
+                            </comment>
+                        </amazon_s3_key>
+                        <amazon_s3_secret>
+                            <label>Amazon S3 Secret</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><amazon_active>1</amazon_active></depends>
+                            <comment><![CDATA[
+                Found at: <a href="https://app.zaius.com/app?scope=731#/integrations?activeTab=amazon_s3" target="_blank">Integrations</a> in your Zaius Account. ]]>
+                            </comment>
+                        </amazon_s3_secret>
+                    </fields>
+                </config>
+
+                <settings translate="label comment">
+                    <label>Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <cart_abandon_secret_key translate="label">
+                            <label>Cart Abandonment Secret Key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </cart_abandon_secret_key>
+                        <global_id_prefix translate="label">
+                            <label>Global ID Prefix</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </global_id_prefix>
+                        <zaius_newsletter_list_id translate="label">
+                            <label>Zaius Newsletter List ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </zaius_newsletter_list_id>
+                        <use_magento_customer_id translate="label">
+                            <label>Use Magento Customer ID</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </use_magento_customer_id>
+                        <track_orders_on_frontend translate="label">
+                            <label>Track Orders on Frontend</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>16</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </track_orders_on_frontend>
+                        <collect_all_product_attributes translate="label">
+                            <label>Collect All Product Attributes</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>17</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </collect_all_product_attributes>
+                        <reported_currency translate="label">
+                            <label>Reported Currency</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>zaius_engage/system_config_source_currency</source_model>
+                            <sort_order>18</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </reported_currency>
+                        <submit_status_not_active translate="label">
+                            <label>Submit Event For Status Not Active (Double Opt-in beta support)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>19</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </submit_status_not_active>
+                    </fields>
+                </settings>
+
+                <schema_update translate="label comment">
+                    <label>Zaius Schema Update</label>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <expanded>0</expanded>
+                    <fields>
+                        <heading translate="label">
+                            <label><![CDATA[
+                In order for Batch Updating to function properly Zaius requires perticular modifications to Magentos database schema.<br/>
+            Be sure to take appropriate backup measures before running the update.
+            ]]></label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </heading>
+                        <button translate="label">
+                            <label>Update Schema</label>
+                            <frontend_type>button</frontend_type>
+                            <frontend_model>zaius_engage/adminhtml_system_config_button</frontend_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <comment><![CDATA[
+                <strong>WARNING!</strong><br /> Hitting this button will affect your database.
+                 ]]>
+                            </comment>
+                            <show_in_store>0</show_in_store>
+                        </button>
+                    </fields>
+                </schema_update>
+
+                <localizations translate="label comment">
+                    <label>Zaius Localizations</label>
+                    <sort_order>40</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <heading translate="label">
+                            <label>Localizations are currently in beta. Please consult with your Zaius Customer Success Manager prior to enabling this feature.</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </heading>
+                        <status translate="label comment">
+                            <label>Enable/Disable</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>1</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </status>
+                    </fields>
+                </localizations>
+
+                <batch_updates translate="label comment">
+                    <label>Zaius Batch Updating</label>
+                    <sort_order>50</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <heading translate="label">
+                            <label>Setup recurring batch updating</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </heading>
+                        <status translate="label comment">
+                            <label>Enable/Disable</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>5</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </status>
+                        <schedule>
+                            <label>How often would you like to update Zaius?</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <comment><![CDATA[
+                Must use <strong>Crontab</strong> Format <br />(Eg. "*/5 * * * *" for every 5 minutes).<br />
+                For help use <a href="https://crontab.guru" target="_blank">crontab.guru</a> to get a clear understand of the format. ]]>
+                            </comment>
+                            <show_in_default>1</show_in_default>
+                            <depends>
+                                <status>1</status>
+                            </depends>
+                        </schedule>
+                    </fields>
+                </batch_updates>
+
+                <delayed_updates translate="label comment">
+                    <label>Zaius Delayed Updating</label>
+                    <sort_order>50</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+
+
+                    <fields>
+                        <heading translate="label">
+                            <label>Setup delayed events</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>If active, all Zaius events will be queued and pushed by the cron instead of real-time</comment>
+                        </heading>
+                        <status translate="label comment">
+                            <label>Enable/Disable</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>5</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </status>
+                        <schedule>
+                            <label>How often would you like to send events to Zaius?</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <comment><![CDATA[
+                Must use <strong>Crontab</strong> Format <br />(Eg. "*/5 * * * *" for every 5 minutes).<br />
+                For help use <a href="https://crontab.guru" target="_blank">crontab.guru</a> to get a clear understand of the format. ]]>
+                            </comment>
+                            <show_in_default>1</show_in_default>
+                            <depends>
+                                <status>1</status>
+                            </depends>
+                        </schedule>
+                    </fields>
+
+                </delayed_updates>
+
+            </groups>
+        </zaius_engage>
+    </sections>
+</config>

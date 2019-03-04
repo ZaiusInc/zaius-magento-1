@@ -1,0 +1,46 @@
+<?php $enabled = Mage::helper('zaius_engage')->isEnabled(); ?>
+<?php $notAdmin = Mage::getDesign()->getArea() != 'adminhtml'; ?>
+<?php if ($enabled && $notAdmin): ?>
+    <script type='text/javascript'>
+        <?php // Zaius Init ?>
+        var zaius = zaius || [];
+        zaius.methods = ["initialize", "onload", "event", "entity", "identify", "anonymize"];
+        zaius.factory = function (e) {
+            return function () {
+                var t = Array.prototype.slice.call(arguments);
+                t.unshift(e);
+                zaius.push(t);
+                return zaius
+            }
+        };
+        for (var i = 0; i < zaius.methods.length; i++) {
+            var method = zaius.methods[i];
+            zaius[method] = zaius.factory(method)
+        }
+        (function () {
+            var e = document.createElement("script");
+            e.type = "text/javascript";
+            e.async = true;
+            e.src = ("https:" === document.location.protocol ? "https://" : "http://") + "d1igp3oop3iho5.cloudfront.net/v2/<?php echo Mage::helper('zaius_engage')->getTrackerId(); ?>/zaius-min.js";
+            var t = document.getElementsByTagName("script")[0];
+            t.parentNode.insertBefore(e, t)
+        })();
+        <?php // Process pre-baked events: ?>
+        if (window.zaiusEvents != undefined) {
+            window.zaiusEvents.forEach(function (event) {
+                zaius.event(event.eventType, event.eventData);
+            });
+        }
+        <?php $events = $this->getEvents(); // Zaius Events ?>
+        <?php foreach ($events as $event): ?>
+        <?php // Anonymize: ?>
+        <?php if ($event->eventType == "anonymize"): ?>
+        zaius.anonymize();
+        <?php // Standard event: ?>
+        <?php else: ?>
+        zaius.event('<?php echo $event->eventType; ?>', <?php echo $this->getEventDataJson($event); ?>);
+        <?php endif; ?>
+        <?php endforeach; ?>
+    </script>
+    <?php $this->clearEvents(); ?>
+<?php endif; ?>

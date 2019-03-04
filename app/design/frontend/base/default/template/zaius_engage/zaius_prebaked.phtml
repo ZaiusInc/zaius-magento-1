@@ -1,0 +1,5 @@
+<?php $enabled = Mage::helper('zaius_engage')->isEnabled(); ?>
+<?php $notAdmin = Mage::getDesign()->getArea() != 'adminhtml'; ?>
+<?php if ($enabled && $notAdmin): ?>
+    <script>window.zaiusEvents = <?php echo json_encode(Mage::helper('zaius_engage/event')->getPrebakedEvents()); ?></script>
+<?php endif; ?>

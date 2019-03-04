@@ -1,0 +1,77 @@
+<config>
+  <api>
+    <resources>
+      <zaius_engage_api translate="title" module="zaius_engage">
+        <model>zaius_engage/api</model>
+        <title>Zaius Engage</title>
+        <acl>zaius_engage</acl>
+        <methods>
+          <locales translate="title" module="zaius_engage">
+            <title>Retrieves alternate locales present</title>
+            <acl>zaius_engage/locales</acl>
+          </locales>
+          <customers translate="title" module="zaius_engage">
+            <title>Retrieves customers in Zaius format</title>
+            <acl>zaius_engage/customers</acl>
+          </customers>
+          <products translate="title" module="zaius_engage">
+            <title>Retrieves products in Zaius format</title>
+            <acl>zaius_engage/products</acl>
+          </products>
+          <orders translate="title" module="zaius_engage">
+            <title>Retrieves orders in Zaius format</title>
+            <acl>zaius_engage/orders</acl>
+          </orders>
+          <createCoupons translate="title" module="zaius_engage">
+            <title>Creates new coupon codes for a salesrule</title>
+            <acl>zaius_engage/create_coupons</acl>
+          </createCoupons>
+          <subscribers translate="title" module="zaius_engage">
+            <title>Retrieves newsletter subscribers in Zaius format</title>
+            <acl>zaius_engage/subscribers</acl>
+          </subscribers>
+          <configuration translate="title" module="zaius_engage">
+            <title>Retrieves Zaius Engage configuration values in Zaius format</title>
+            <acl>zaius_engage/configuration</acl>
+          </configuration>
+        </methods>
+      </zaius_engage_api>
+    </resources>
+    <resources_alias>
+      <zaius_engage>zaius_engage_api</zaius_engage>
+    </resources_alias>
+    <v2>
+      <resources_function_prefix>
+        <zaius_engage>zaiusEngage</zaius_engage>
+      </resources_function_prefix>
+    </v2>
+    <acl>
+      <resources>
+        <zaius_engage translate="title" module="zaius_engage">
+          <title>Zaius Engage</title>
+          <locales translate="title" module="zaius_engage">
+            <title>Retrieves alternate locales present</title>
+          </locales>
+          <customers translate="title" module="zaius_engage">
+            <title>Retrieve customers for Zaius bulk import</title>
+          </customers>
+          <products translate="title" module="zaius_engage">
+            <title>Retrieve products for Zaius bulk import</title>
+          </products>
+          <orders translate="title" module="zaius_engage">
+            <title>Retrieve orders for Zaius bulk import</title>
+          </orders>
+          <create_coupons translate="title" module="zaius_engage">
+            <title>Creates new coupon codes for a salesrule</title>
+          </create_coupons>
+          <subscribers translate="title" module="zaius_engage">
+            <title>Retrieve newsletter subscribers for Zaius bulk import</title>
+          </subscribers>
+          <configuration translate="title" module="zaius_engage">
+            <title>Retrieve Zaius Engage configuration values for Zaius bulk import</title>
+          </configuration>
+        </zaius_engage>
+      </resources>
+    </acl>
+  </api>
+</config>

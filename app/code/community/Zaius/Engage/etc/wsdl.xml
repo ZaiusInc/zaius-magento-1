@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:typens="urn:{{var wsdl.name}}" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/"
+             name="{{var wsdl.name}}" targetNamespace="urn:{{var wsdl.name}}">
+  <types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:Magento">
+      <import namespace="http://schemas.xmlsoap.org/soap/encoding/" schemaLocation="http://schemas.xmlsoap.org/soap/encoding/" />
+    </schema>
+  </types>
+  <message name="zaiusEngageLocalesRequest">
+    <part name="sessionId" type="xsd:string" />
+  </message>
+  <message name="zaiusEngageLocalesResponse">
+    <part name="jsonResult" type="xsd:string" />
+  </message>
+  <portType name="{{var wsdl.handler}}PortType">
+    <operation name="zaiusEngageLocales">
+      <documentation>Retrieves alternate locales present</documentation>
+      <input  message="typens:zaiusEngageLocalesRequest" />
+      <output message="typens:zaiusEngageLocalesResponse" />
+    </operation>
+  </portType>
+  <message name="zaiusEngageCustomersRequest">
+    <part name="sessionId" type="xsd:string" />
+    <part name="jsonOpts" type="xsd:string" />
+  </message>
+  <message name="zaiusEngageCustomersResponse">
+    <part name="jsonResult" type="xsd:string" />
+  </message>
+  <portType name="{{var wsdl.handler}}PortType">
+    <operation name="zaiusEngageCustomers">
+      <documentation>Retrieves customers for Zaius bulk import</documentation>
+      <input message="typens:zaiusEngageCustomersRequest" />
+      <output message="typens:zaiusEngageCustomersResponse" />
+    </operation>
+  </portType>
+  <message name="zaiusEngageProductsRequest">
+    <part name="sessionId" type="xsd:string" />
+    <part name="jsonOpts" type="xsd:string" />
+  </message>
+  <message name="zaiusEngageProductsResponse">
+    <part name="jsonResult" type="xsd:string" />
+  </message>
+  <portType name="{{var wsdl.handler}}PortType">
+    <operation name="zaiusEngageProducts">
+      <documentation>Retrieves products for Zaius bulk import</documentation>
+      <input message="typens:zaiusEngageProductsRequest" />
+      <output message="typens:zaiusEngageProductsResponse" />
+    </operation>
+  </portType>
+  <message name="zaiusEngageOrdersRequest">
+    <part name="sessionId" type="xsd:string" />
+    <part name="jsonOpts" type="xsd:string" />
+  </message>
+  <message name="zaiusEngageOrdersResponse">
+    <part name="jsonResult" type="xsd:string" />
+  </message>
+  <portType name="{{var wsdl.handler}}PortType">
+    <operation name="zaiusEngageOrders">
+      <documentation>Retrieves orders for Zaius bulk import</documentation>
+      <input message="typens:zaiusEngageOrdersRequest" />
+      <output message="typens:zaiusEngageOrdersResponse" />
+    </operation>
+  </portType>
+  <message name="zaiusEngageCreateCouponsRequest">
+    <part name="sessionId" type="xsd:string" />
+    <part name="jsonOpts" type="xsd:string" />
+  </message>
+  <message name="zaiusEngageCreateCouponsResponse">
+    <part name="jsonResult" type="xsd:string" />
+  </message>
+  <portType name="{{var wsdl.handler}}PortType">
+    <operation name="zaiusEngageCreateCoupons">
+      <documentation>Creates new coupon codes for a salesrule</documentation>
+      <input message="typens:zaiusEngageCreateCouponsRequest" />
+      <output message="typens:zaiusEngageCreateCouponsResponse" />
+    </operation>
+  </portType>
+  <message name="zaiusEngageSubscribersRequest">
+    <part name="sessionId" type="xsd:string" />
+    <part name="jsonOpts" type="xsd:string" />
+  </message>
+  <message name="zaiusEngageSubscribersResponse">
+    <part name="jsonResult" type="xsd:string" />
+  </message>
+  <portType name="{{var wsdl.handler}}PortType">
+    <operation name="zaiusEngageSubscribers">
+      <documentation>Retrieve newsletter subscribers for Zaius bulk import</documentation>
+      <input message="typens:zaiusEngageSubscribersRequest" />
+      <output message="typens:zaiusEngageSubscribersResponse" />
+    </operation>
+  </portType>
+  <message name="zaiusEngageConfigurationRequest">
+    <part name="sessionId" type="xsd:string" />
+    <part name="jsonOpts" type="xsd:string" />
+  </message>
+  <message name="zaiusEngageConfigurationResponse">
+    <part name="jsonResult" type="xsd:string" />
+  </message>
+  <portType name="{{var wsdl.handler}}PortType">
+    <operation name="zaiusEngageConfiguration">
+      <documentation>Retrieve Zaius Engage configuration values for Zaius bulk import</documentation>
+      <input message="typens:zaiusEngageConfigurationRequest" />
+      <output message="typens:zaiusEngageConfigurationResponse" />
+    </operation>
+  </portType>
+  <binding name="{{var wsdl.handler}}Binding" type="typens:{{var wsdl.handler}}PortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="zaiusEngageLocales">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <input>
+        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="zaiusEngageCustomers">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <input>
+        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="zaiusEngageProducts">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <input>
+        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="zaiusEngageOrders">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <input>
+        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="zaiusEngageCreateCoupons">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <input>
+        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="zaiusEngageSubscribers">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <input>
+        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="zaiusEngageConfiguration">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <input>
+        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="{{var wsdl.name}}Service">
+    <port name="{{var wsdl.handler}}Port" binding="typens:{{var wsdl.handler}}Binding">
+      <soap:address location="{{var wsdl.url}}" />
+    </port>
+  </service>
+</definitions>

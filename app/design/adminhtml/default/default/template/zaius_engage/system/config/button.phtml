@@ -1,0 +1,14 @@
+<script type="text/javascript">
+function check() {
+        new Ajax.Request('<?php echo $this->getAjaxCheckUrl() ?>', {
+            method:     'get',
+            onSuccess: function(transport){
+
+            if (transport.responseText){
+                alert('Following tables have been affected and batched.'+ transport.responseText)
+            }
+            }
+        });
+    }
+</script>
+<?php echo $this->getButtonHtml() ?>

@@ -1,0 +1,11 @@
+<config>
+    <placeholders>
+        <zaius_engage>
+            <block>zaius_engage/template</block>
+            <placeholder>ZAIUS_BLOCKMANAGER</placeholder>
+            <container>Zaius_Engage_Model_Cache_Container_Template</container>
+             <cache_life>0</cache_life>
+             <cache_lifetime>0</cache_lifetime>
+        </zaius_engage>
+    </placeholders>
+</config>

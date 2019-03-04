@@ -1,0 +1,43 @@
+{
+  "name": "zaius/zaius-engage-m1",
+  "type": "magento-module",
+  "description": "The Zaius Engage Connector for Magento 1.",
+  "license": "MIT",
+  "version": "1.0.0-beta.1",
+  "require": {
+    "magento-hackathon/magento-composer-installer": "^3.2",
+    "zaius/zaius-php-sdk": "1.0.0-beta.2"
+  },
+  "extra": {
+    "magento-root-dir": "./",
+    "magento-deploystrategy": "copy",
+    "map": [
+      [
+        "app/code/community/Zaius",
+        "app/code/community/Zaius"
+      ],
+      [
+        "app/design/adminhtml/default/default/template/zaius_engage",
+        "app/design/adminhtml/default/default/template/zaius_engage"
+      ],
+      [
+        "app/design/frontend/base/default/template/zaius_engage",
+        "app/design/frontend/base/default/template/zaius_engage"
+      ],
+      [
+        "app/design/frontend/base/default/layout/zaius_engage.xml",
+        "app/design/frontend/base/default/layout/zaius_engage.xml"
+      ],
+      [
+        "app/etc/modules/Zaius_Engage.xml",
+        "app/etc/modules/Zaius_Engage.xml"
+      ]
+    ]
+  },
+  "repositories": {
+    "firegento": {
+      "type": "composer",
+      "url": "https://packages.firegento.com"
+    }
+  }
+}

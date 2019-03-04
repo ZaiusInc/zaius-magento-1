@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:typens="urn:{{var wsdl.name}}" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="{{var wsdl.name}}" targetNamespace="urn:{{var wsdl.name}}">
+  <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:{{var wsdl.name}}">
+
+      <xsd:element name="zaiusEngageConfigurationRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string"/>
+            <xsd:element name="jsonOpts" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="zaiusEngageConfigurationResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="result" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="zaiusEngageLocalesRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string"/>  
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="zaiusEngageLocalesResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="result" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="zaiusEngageCustomersRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string"/>  
+            <xsd:element name="jsonOpts" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="zaiusEngageCustomersResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="result" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="zaiusEngageOrdersRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string"/>
+            <xsd:element name="jsonOpts" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="zaiusEngageOrdersResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="result" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="zaiusEngageProductsRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string"/>
+            <xsd:element name="jsonOpts" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="zaiusEngageProductsResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="result" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="zaiusEngageCreateCouponsRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string"/>
+            <xsd:element name="jsonOpts" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="zaiusEngageCreateCouponsResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="result" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="zaiusEngageSubscribersRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string"/>
+            <xsd:element name="jsonOpts" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="zaiusEngageSubscribersResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="result" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+</wsdl:types>
+  <wsdl:message name="zaiusEngageConfigurationRequest">
+      <wsdl:part name="parameters" element="typens:zaiusEngageConfigurationRequestParam"/>
+  </wsdl:message>
+  <wsdl:message name="zaiusEngageConfigurationResponse">
+      <wsdl:part name="parameters" element="typens:zaiusEngageConfigurationResponseParam"/>
+  </wsdl:message>
+  <wsdl:portType name="{{var wsdl.handler}}PortType">
+      <wsdl:operation name="zaiusEngageConfiguration">
+          <wsdl:documentation>Retrieve Zaius Engage configuration values for Zaius bulk import</wsdl:documentation>
+          <wsdl:input message="typens:zaiusEngageConfigurationRequest"/>
+          <wsdl:output message="typens:zaiusEngageConfigurationResponse"/>
+      </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:message name="zaiusEngageLocalesRequest">
+    <wsdl:part name="parameters" element="typens:zaiusEngageLocalesRequestParam"/>
+  </wsdl:message>
+  <wsdl:message name="zaiusEngageLocalesResponse">
+    <wsdl:part name="parameters" element="typens:zaiusEngageLocalesResponseParam"/>
+  </wsdl:message>
+  <wsdl:portType name="{{var wsdl.handler}}PortType">
+    <wsdl:operation name="zaiusEngageLocales">
+      <wsdl:documentation>Retrieves alternate locales present</wsdl:documentation>
+      <wsdl:input message="typens:zaiusEngageLocalesRequest"/>
+      <wsdl:output message="typens:zaiusEngageLocalesResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:message name="zaiusEngageCustomersRequest">
+    <wsdl:part name="parameters" element="typens:zaiusEngageCustomersRequestParam"/>
+  </wsdl:message>
+  <wsdl:message name="zaiusEngageCustomersResponse">
+    <wsdl:part name="parameters" element="typens:zaiusEngageCustomersResponseParam"/>
+  </wsdl:message>
+  <wsdl:portType name="{{var wsdl.handler}}PortType">
+    <wsdl:operation name="zaiusEngageCustomers">
+      <wsdl:documentation>Retrieves customers for Zaius bulk import</wsdl:documentation>
+      <wsdl:input message="typens:zaiusEngageCustomersRequest"/>
+      <wsdl:output message="typens:zaiusEngageCustomersResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:message name="zaiusEngageProductsRequest">
+    <wsdl:part name="parameters" element="typens:zaiusEngageProductsRequestParam"/>
+  </wsdl:message>
+  <wsdl:message name="zaiusEngageProductsResponse">
+    <wsdl:part name="parameters" element="typens:zaiusEngageProductsResponseParam"/>  
+  </wsdl:message>
+  <wsdl:portType name="{{var wsdl.handler}}PortType">
+    <wsdl:operation name="zaiusEngageProducts">
+      <wsdl:documentation>Retrieves products for Zaius bulk import</wsdl:documentation>
+      <wsdl:input message="typens:zaiusEngageProductsRequest"/>
+      <wsdl:output message="typens:zaiusEngageProductsResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:message name="zaiusEngageOrdersRequest">
+    <wsdl:part name="parameters" element="typens:zaiusEngageOrdersRequestParam"/>  
+  </wsdl:message>
+  <wsdl:message name="zaiusEngageOrdersResponse">
+    <wsdl:part name="parameters" element="typens:zaiusEngageOrdersResponseParam"/>  
+  </wsdl:message>
+  <wsdl:portType name="{{var wsdl.handler}}PortType">
+    <wsdl:operation name="zaiusEngageOrders">
+      <wsdl:documentation>Retrieves orders for Zaius bulk import</wsdl:documentation>
+      <wsdl:input message="typens:zaiusEngageOrdersRequest"/>
+      <wsdl:output message="typens:zaiusEngageOrdersResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:message name="zaiusEngageCreateCouponsRequest">
+    <wsdl:part name="parameters" element="typens:zaiusEngageCreateCouponsRequestParam"/>  
+  </wsdl:message>
+  <wsdl:message name="zaiusEngageCreateCouponsResponse">
+    <wsdl:part name="parameters" element="typens:zaiusEngageCreateCouponsResponseParam"/>
+  </wsdl:message>
+  <wsdl:portType name="{{var wsdl.handler}}PortType">
+    <wsdl:operation name="zaiusEngageCreateCoupons">
+      <wsdl:documentation>Creates new coupon codes for a salesrule</wsdl:documentation>
+      <wsdl:input message="typens:zaiusEngageCreateCouponsRequest"/>
+      <wsdl:output message="typens:zaiusEngageCreateCouponsResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:message name="zaiusEngageSubscribersRequest">
+    <wsdl:part name="parameters" element="typens:zaiusEngageSubscribersRequestParam"/>  
+  </wsdl:message>
+  <wsdl:message name="zaiusEngageSubscribersResponse">
+    <wsdl:part name="parameters" element="typens:zaiusEngageSubscribersResponseParam"/>  
+  </wsdl:message>
+  <wsdl:portType name="{{var wsdl.handler}}PortType">
+    <wsdl:operation name="zaiusEngageSubscribers">
+      <wsdl:documentation>Retrieve newsletter subscribers for Zaius bulk import</wsdl:documentation>
+      <wsdl:input message="typens:zaiusEngageSubscribersRequest"/>
+      <wsdl:output message="typens:zaiusEngageSubscribersResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="{{var wsdl.handler}}Binding" type="typens:{{var wsdl.handler}}PortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+    <wsdl:operation name="zaiusEngageConfiguration">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="zaiusEngageLocales">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="zaiusEngageCustomers">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="zaiusEngageProducts">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="zaiusEngageOrders">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="zaiusEngageCreateCoupons">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="zaiusEngageSubscribers">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+
+  </wsdl:binding>
+  <wsdl:service name="{{var wsdl.name}}Service">
+    <wsdl:port name="{{var wsdl.handler}}Port" binding="typens:{{var wsdl.handler}}Binding">
+      <soap:address location="{{var wsdl.url}}"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

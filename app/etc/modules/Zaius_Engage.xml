@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <modules>
+    <Zaius_Engage>
+      <active>true</active>
+      <codePool>community</codePool>
+    </Zaius_Engage>
+  </modules>
+</config>

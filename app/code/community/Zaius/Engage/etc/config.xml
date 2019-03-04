@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+
+  <modules>
+    <Zaius_Engage>
+      <version>1.0.0-beta.1</version>
+    </Zaius_Engage>
+  </modules>
+
+  <global>
+    <resources>
+      <zaius_engage_setup>
+        <setup>
+          <module>Zaius_Engage</module>
+          <class>Mage_Core_Model_Resource_Setup</class>
+        </setup>
+      </zaius_engage_setup>
+      <zaius_engage_write>
+        <connection>
+          <use>core_write</use>
+        </connection>
+      </zaius_engage_write>
+      <zaius_engage_read>
+        <connection>
+          <use>core_read</use>
+        </connection>
+      </zaius_engage_read>
+    </resources>
+
+    <events>
+      <cataloginventory_stock_item_save_after>
+        <observers>
+          <zaius_engage>
+            <class>zaius_engage/observer_stock_item</class>
+            <method>saveAfter</method>
+          </zaius_engage>
+        </observers>
+      </cataloginventory_stock_item_save_after>
+
+      <sales_order_place_after>
+        <observers>
+          <zaius_engage_order_observer>
+            <type>singleton</type>
+            <class>zaius_engage/observer_order</class>
+            <method>orderPlaced</method>
+          </zaius_engage_order_observer>
+        </observers>
+      </sales_order_place_after>
+
+      <sales_order_save_after>
+        <observers>
+          <zaius_engage_order_observer>
+            <type>singleton</type>
+            <class>zaius_engage/observer_order</class>
+            <method>orderSaved</method>
+          </zaius_engage_order_observer>
+        </observers>
+      </sales_order_save_after>
+
+      <sales_order_payment_cancel>
+        <observers>
+          <zaius_engage_order_observer>
+            <type>singleton</type>
+            <class>zaius_engage/observer_order</class>
+            <method>cancel</method>
+          </zaius_engage_order_observer>
+        </observers>
+      </sales_order_payment_cancel>
+
+      <sales_order_payment_refund>
+        <observers>
+          <zaius_engage_order_observer>
+            <type>singleton</type>
+            <class>zaius_engage/observer_order</class>
+            <method>refund</method>
+          </zaius_engage_order_observer>
+        </observers>
+      </sales_order_payment_refund>
+
+      <customer_save_after>
+        <observers>
+          <zaius_engage_customer_observer>
+            <type>singleton</type>
+            <class>zaius_engage/observer_customer</class>
+            <method>entity</method>
+          </zaius_engage_customer_observer>
+        </observers>
+      </customer_save_after>
+
+      <customer_address_save_after>
+        <observers>
+          <zaius_engage_customer_observer>
+            <type>singleton</type>
+            <class>zaius_engage/observer_customer</class>
+            <method>entityFromAddress</method>
+          </zaius_engage_customer_observer>
+        </observers>
+      </customer_address_save_after>
+
+      <resource_get_tablename>
+        <observers>
+          <zaius_engage_autoload_observer>
+            <type>singleton</type>
+            <class>zaius_engage/observer_autoload</class>
+            <method>addAutoloader</method>
+          </zaius_engage_autoload_observer>
+        </observers>
+      </resource_get_tablename>
+
+
+    </events>
+
+    <blocks>
+      <zaius_engage>
+        <class>Zaius_Engage_Block</class>
+      </zaius_engage>
+    </blocks>
+
+    <models>
+      <zaius_engage>
+        <class>Zaius_Engage_Model</class>
+      </zaius_engage>
+    </models>
+
+    <helpers>
+      <zaius_engage>
+        <class>Zaius_Engage_Helper</class>
+      </zaius_engage>
+    </helpers>
+  </global>
+
+  <frontend>
+    <events>
+      <checkout_cart_add_product_complete>
+        <observers>
+          <zaius_engage_product_observer>
+            <class>zaius_engage/observer_product</class>
+            <method>addToCart</method>
+          </zaius_engage_product_observer>
+        </observers>
+      </checkout_cart_add_product_complete>
+
+      <sales_quote_remove_item>
+        <observers>
+          <zaius_engage_product_observer>
+            <class>zaius_engage/observer_product</class>
+            <method>removeFromCart</method>
+          </zaius_engage_product_observer>
+        </observers>
+      </sales_quote_remove_item>
+
+      <wishlist_add_product>
+        <observers>
+          <zaius_engage_product_observer>
+            <type>singleton</type>
+            <class>zaius_engage/observer_product</class>
+            <method>wishlist</method>
+          </zaius_engage_product_observer>
+        </observers>
+      </wishlist_add_product>
+
+      <customer_register_success>
+        <observers>
+          <zaius_engage_customer_observer>
+            <type>singleton</type>
+            <class>zaius_engage/observer_customer</class>
+            <method>register</method>
+          </zaius_engage_customer_observer>
+        </observers>
+      </customer_register_success>
+
+      <customer_login>
+        <observers>
+          <zaius_engage_customer_observer>
+            <type>singleton</type>
+            <class>zaius_engage/observer_customer</class>
+            <method>login</method>
+          </zaius_engage_customer_observer>
+        </observers>
+      </customer_login>
+
+      <customer_logout>
+        <observers>
+          <zaius_engage_customer_observer>
+            <type>singleton</type>
+            <class>zaius_engage/observer_customer</class>
+            <method>logout</method>
+          </zaius_engage_customer_observer>
+        </observers>
+      </customer_logout>
+
+      <newsletter_subscriber_save_after>
+        <observers>
+          <zaius_engage_newsletter_observer>
+            <type>singleton</type>
+            <class>zaius_engage/observer_newsletter</class>
+            <method>subscriptionChange</method>
+          </zaius_engage_newsletter_observer>
+        </observers>
+      </newsletter_subscriber_save_after>
+    </events>
+
+    <routers>
+      <zaius_engage>
+        <use>standard</use>
+        <args>
+          <module>Zaius_Engage</module>
+          <frontName>zaius_engage</frontName>
+        </args>
+      </zaius_engage>
+    </routers>
+
+    <layout>
+      <updates>
+        <zaius_engage>
+          <file>zaius_engage.xml</file>
+        </zaius_engage>
+      </updates>
+    </layout>
+  </frontend>
+
+  <adminhtml>
+    <events>
+      <catalog_product_save_after>
+        <observers>
+          <zaius_engage_product_observer>
+            <type>singleton</type>
+            <class>zaius_engage/observer_product</class>
+            <method>entity</method>
+          </zaius_engage_product_observer>
+        </observers>
+      </catalog_product_save_after>
+
+      <admin_system_config_changed_section_zaius_engage>
+        <observers>
+          <zaius_engage>
+            <type>singleton</type>
+            <class>zaius_engage/observer</class>
+            <method>adminSystemConfigChangedSection</method>
+          </zaius_engage>
+        </observers>
+      </admin_system_config_changed_section_zaius_engage>
+
+    </events>
+  </adminhtml>
+
+  <default>
+    <zaius_engage>
+      <settings>
+        <zaius_newsletter_list_id>newsletter</zaius_newsletter_list_id>
+        <track_orders_on_frontend>1</track_orders_on_frontend>
+        <submit_status_not_active>0</submit_status_not_active>
+        <use_magento_customer_id>1</use_magento_customer_id>
+      </settings>
+      <batch_updates>
+          <status>0</status>
+          <schedule>*/5 * * * *</schedule>
+      </batch_updates>
+      <delayed_updates>
+        <status>0</status>
+        <schedule>*/5 * * * *</schedule>
+      </delayed_updates>
+    </zaius_engage>
+  </default>
+
+  <crontab>
+    <jobs>
+      <zaius_engage_task>
+        <schedule>
+          <config_path>zaius_engage/batch_updates/schedule</config_path>
+        </schedule>
+        <run>
+          <model>zaius_engage/observer::runCron</model>
+        </run>
+      </zaius_engage_task>
+      <zaius_delayed_events_task>
+        <schedule>
+          <config_path>zaius_engage/delayed_updates/schedule</config_path>
+        </schedule>
+        <run>
+          <model>zaius_engage/observer::runDelayedUpdatesCron</model>
+        </run>
+      </zaius_delayed_events_task>
+    </jobs>
+  </crontab>
+
+  <admin>
+    <routers>
+      <adminhtml>
+        <use>admin</use>
+        <args>
+          <modules>
+            <zaius_engage after="Mage_Adminhtml">Zaius_Engage_Adminhtml</zaius_engage>
+          </modules>
+        </args>
+      </adminhtml>
+    </routers>
+  </admin>
+
+
+</config>

@@ -1,5 +1,6 @@
 {
   "require": {
+    "magento-hackathon/magento-composer-installer": "^3.2",
     "zaius/zaius-magento-1": "1.0.0@beta",
     "zaius/zaius-php-sdk": "@beta"
   }

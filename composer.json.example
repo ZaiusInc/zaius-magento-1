@@ -1,0 +1,6 @@
+{
+  "require": {
+    "zaius/zaius-magento-1": "1.0.0@beta",
+    "zaius/zaius-php-sdk": "@beta"
+  }
+}

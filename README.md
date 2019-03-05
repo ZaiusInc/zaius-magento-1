@@ -1,4 +1,4 @@
-#Zaius Magento 1 Connector
+# Zaius Magento 1 Connector
 
 Integrate Zaius directly into your Magento instance using the Zaius Magento 1 Connector.
 
@@ -32,7 +32,11 @@ composer
 
 Composer is now globally installed on your server.
 
-To install the Zaius Magento 1 Connector with composer, Zaius will provide a `composer.json` file for you to place into your Magento 1 root directory. Once this file is in place, installing the Zaius Magento 1 Connector is as easy as running a simple command from the root of your Magento instance:
+To install the Zaius Magento 1 Connector with composer, you can place the file `composer.json.example` into your Magento 1 root directory (without the .example extension). 
+
+If you already have a composer.json file, add the required libraries from `composer.json.example` into it.
+
+Once these requirements are noted, installing the Zaius Magento 1 Connector is as easy as running a simple command from the root of your Magento instance:
 
 ```
 composer install

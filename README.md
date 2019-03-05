@@ -1,39 +1,59 @@
-# Zaius Engage Connector
-------------------------------
+# Zaius Magento 1 Connector
 
-## Zaius Magento 1.9.x Module
+Integrate Zaius directly into your Magento instance using the Zaius Magento 1 Connector.
 
-### Requirements:
-* PHP 5 >= 5.5.0, PHP 7
-* PHP `mbstring` extension.
+## Getting Started
 
-#### Updating the SOAP API
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-Magento 1.x provides two WSDL's -- a standard one, and then one for "WSI-Compliance" mode. These do not get generated automatically, so both `wsi.xml` and `wsdl.xml` must be updated if any significant changes to the Zaius SOAP API occur, such as adding or removing a method, or changing the signature of an existing method. 
+### Prerequisites
+
+1. Magento 1 "^1.9.x"
+2. PHP 5 >= 5.5.0, PHP 7
+3. (OPTIONAL) Composer
+
+## Installing
+
+### Composer
+
+By far the quickest and easiest way to install and maintain the Zaius Magento 1 Connector is to use Composer. Unfortunately, Magento 1 was built before Composer, and therefore does not support it out-of-the-box. However, it is easy to get composer and Magneto 1 working together. To install Composer, one will need access to the server command line.
+
+```bash
+cd ~
+curl -sS https://getcomposer.org/installer -o composer-setup.php
+sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+```
+
+To test the installation, run:
+
+```bash
+composer
+```
+
+Composer is now globally installed on your server.
+
+To install the Zaius Magento 1 Connector with composer, you can place the file `composer.json.example` into your Magento 1 root directory (without the .example extension). 
+
+If you already have a composer.json file, add the required libraries from `composer.json.example` into it.
+
+Once these requirements are noted, installing the Zaius Magento 1 Connector is as easy as running a simple command from the root of your Magento instance:
+
+```
+composer install
+```
+
+This will download the necessary files for Composer to work with Magento 1, as well as the Zaius Magento 1 Connector and the Zaius PHP SDK.
+
+### ZIP
+
+1. Download the Zaius Magento 1 module archive from Git: https://github.com/ZaiusInc/zaius-magento-1/archive/master.zip
+2. Extract the contents of the ZIP file to <MAGENTO_ROOT>/<extract_here>.
+
+In a correct directory structure, you will find the Zaius Magento 1 Connector files in <MAGENTO_ROOT>/app/code/community/Zaius
 
 #### Setting Up The Connector
 
-##### Part 1: Installing the Magento Module
-
-1. Download the latest connector package: [Zaius_Engage-0.14.0.tgz](https://s3.amazonaws.com/zaius-public/magento-connector/Zaius_Engage-0.14.0.tgz).
-2. Log in to your Magento Admin Console.
-    a. From the **System** drop down menu, navigate to the **Magento Connect** sub-menu and select **Magento Connect Manager**
-3. Log in to the **Magento Connect Manager**
-    a. Click 'Choose File'
-    b. Select the Zaius Connector file you downloaded in step one.
-    c. Click 'Upload'.
-    *You will see a log on the bottom of the page detailing the installation process. Once that is complete, the connector is installed.*
-4. Log out of the Magento Admin Console.
-5. Log back in to the Magento Admin Console.
-*This will ensure you are granted the proper access rights to the connector.*
-6. From the **System** drop down menu, navigate to the **Configuration** sub-menu.
-    a. In the left-hand menu you will see a **Zaius Engage** option.
-    b. Click the **Zaius Engage** menu option to see the connector configuration.
-7. Paste your Tracking ID into the **Tracking Identifier** configuration box.
-    a. You may setup the connector with other options here.
-8. Click **Save Config** in the upper right.
-
-##### Part 2: Setting Up A SOAP Role & User
+##### Part 1: Setting Up A SOAP Role & User
 [imTLBMb8R8CmhcwZTeig_Screen%2520Shot%25202016-04-07%2520at%25208.53.34%2520AM.png](https://downloads.intercomcdn.com/i/o/42414843/46602f8e2b5a45b37dcba9db/imTLBMb8R8CmhcwZTeig_Screen%2520Shot%25202016-04-07%2520at%25208.53.34%2520AM.png)
 
 In order to use Magento with Zaius, a user with SOAP API permissions must be created.
@@ -56,13 +76,13 @@ In order to use Magento with Zaius, a user with SOAP API permissions must be cre
 
 The username and API key specified will be provided to Zaius in order to enable the integration.
 
-##### Part 3: Integrating with Zaius
+##### Part 2: Integrating with Zaius
 
 Enter the username, API key and the URL endpoint on your server into the boxes found in the integrations screen in the Magento box. The API URL is typically of the form: "http://your-magento-server/api/v2_soap?wsdl=1"
 
 [9J9L6X4YR6WrU3Wkd4wo_Screen%2520Shot%25202016-04-12%2520at%252011.55.19%2520AM.png](https://downloads.intercomcdn.com/i/o/42414845/34c24ef17897bdd440d66a7a/9J9L6X4YR6WrU3Wkd4wo_Screen%2520Shot%25202016-04-12%2520at%252011.55.19%2520AM.png)
 
-##### Part 4: Configuring Zaius Engage
+##### Part 3: Configuring Zaius Engage
 
 **_Zaius Engage_**
 
@@ -108,7 +128,7 @@ To account for this, Zaius has built a Batch Update module which lives in Magent
 * With the "Submit Event For Status Not Active" option enabled, new users with subscription status 2 ("Not Active") will trigger a "newsletter" event with action "email_submitted"
 * Users can configure an Event Triggered campaign to allow the user to opt-in, and use engagement with that campaign as a filter for their regularly-occurring sends. Your Zaius CSM can help set this up.
 
-##### Part 5: Run the Bulk Import in Zaius
+##### Part 4: Run the Bulk Import in Zaius
 
 Zaius supports the bulk import of customers and product data via [CSV files](https://developers.zaius.com/v2.0/docs/csv-1).
 
@@ -119,7 +139,7 @@ CSV's can be uploaded directly from the app. To upload a CSV, navigate to Cog (A
 [Fields and Data Types](https://developers.zaius.com/v2.0/docs/csv-1#section-fields-and-data-types)
 [Orders](https://developers.zaius.com/v2.0/docs/csv-1#section-orders)
 
-##### Part 6: Using the Event Inspector
+##### Part 5: Using the Event Inspector
 
 Once events are being sent to Zaius' APIs, you can confirm Zaius is receiving your data and see what data Zaius is receiving. This is done via the Event Inspector in the Zaius UI.
 

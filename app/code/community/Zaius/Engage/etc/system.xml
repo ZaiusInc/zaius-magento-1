@@ -84,6 +84,7 @@
                             <comment><![CDATA[
                 Found at: <a href="https://app.zaius.com/app?scope=731#/api_management" target="_blank">API Management</a> in your Zaius Account. ]]>
                             </comment>
+                            <validate>required-entry</validate>
                         </zaius_tracker_id>
                         <zaius_private_api>
                             <label>Zaius API Key</label>
@@ -95,6 +96,7 @@
                             <comment><![CDATA[
                 Found at: <a href="https://app.zaius.com/app?scope=731#/api_management" target="_blank">API Management</a> in your Zaius Account. ]]>
                             </comment>
+                            <validate>required-entry</validate>
                         </zaius_private_api>
                         <amazon_active translate="label comment">
                             <label>Enable Amazon S3 Uploads</label>

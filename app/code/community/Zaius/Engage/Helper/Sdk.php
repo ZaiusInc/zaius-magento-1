@@ -37,8 +37,9 @@ class Zaius_Engage_Helper_Sdk extends Mage_Core_Helper_Abstract
 
     public function getSdkClient()
     {
-        $apiKey = $this->helper->getZaiusApiKey();
-        $zaiusClient = new \ZaiusSDK\ZaiusClient($apiKey);
+        $apiKey = $this->helper->getTrackerId();
+        $privateKey = $this->helper->getZaiusApiKey();
+        $zaiusClient = new \ZaiusSDK\ZaiusClient($apiKey, $privateKey);
 
         $zaiusClient->setQueueDatabaseCredentials([
             'driver' => 'mysql',
@@ -51,6 +52,4 @@ class Zaius_Engage_Helper_Sdk extends Mage_Core_Helper_Abstract
 
         return $zaiusClient;
     }
-
-
 }
